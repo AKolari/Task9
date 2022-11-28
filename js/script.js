@@ -1,8 +1,8 @@
 //Question 1:
 function reverseThisString(string){
-    const returnString=[];
+    let returnString='';
 for(let i=0; i<string.length; i++){
-    returnString[i]=string.charAt(string.length-1-i);
+    returnString+=string.charAt(string.length-1-i);
 }
 return returnString;
 }
@@ -10,13 +10,13 @@ return returnString;
 console.log(reverseThisString("Hello"));
 //Question 2:
 function swapCase(string){
-    const returnString=[];
+    let returnString='';
 for(let i=0; i<string.length; i++){
-    if(string.substr(i)>='a'){
-        returnString[i]=string.charAt(i).toUpperCase();
+    if(string.substr(i)>='a' && string.substr(i)<='z' ){
+        returnString+=string.charAt(i).toUpperCase();
     }
     else{
-        returnString[i]=string.charAt(i).toLowerCase();
+        returnString+=string.charAt(i).toLowerCase();
     }
 }
 return returnString;
@@ -60,7 +60,16 @@ console.log(germanNumbers());
 const numbers = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15];
 function returnPrimeNumbers(){
         return numbers.filter( function(num){
-            return num==2 || num==3 || num==5 || num==7 || num==11|| num==13;
+            //return num==2 || num==3 || num==5 || num==7 || num==11|| num==13;
+            for(let i=2; i<num; i++){
+                if(num%i==0){
+                    return false;
+                }
+            }
+            if(num==1){
+                return false;
+            }
+            return num;
            
     
         });
